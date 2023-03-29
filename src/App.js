@@ -1,13 +1,21 @@
 import './App.css'
-import Card from './components/Card.jsx'
-import Cards from './components/Cards.jsx'
+import Card from './components/card/Card'
+import Cards from './components/cards/Cards'
 import SearchBar from './components/SearchBar.jsx'
 import characters, { Rick } from './data.js'
 
 function App (name,species,gender,image,onClose) {
   return (
     <div className='App' style={{ padding: '25px' }}>
-      <div>
+       <SearchBar
+          onSearch={(characterID) => window.alert(characterID)}
+        />
+        <hr />
+      <div style={{
+        display:"flex",
+        justifyContent:"center",
+        // alignItems:"center",
+      }}>
         <Card
         key ={Rick.id}
           name={Rick.name}
@@ -23,11 +31,9 @@ function App (name,species,gender,image,onClose) {
           characters={characters}
         />
       </div>
-      <hr />
+      
       <div>
-        <SearchBar
-          onSearch={(characterID) => window.alert(characterID)}
-        />
+       
       </div>
     </div>
   )

@@ -1,11 +1,19 @@
-import Card from './Card';
+import Card from '../card/Card';
+import styled from 'styled-components';   
+
+const Div = styled.div`
+display: flex;
+padding: 10px;
+justify-content: space-evenly;
+`;
+
 
 export default function Cards(props) {
 
    const { characters } = props;
       
     return( 
-    <div>
+    <Div>
       {characters.map(({id,name,species,gender,image})=>(
          
        <Card
@@ -18,5 +26,6 @@ export default function Cards(props) {
      />
       ))}
 
-   </div> );
+   </Div> );
 }
+   
