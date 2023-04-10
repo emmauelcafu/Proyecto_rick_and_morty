@@ -1,40 +1,25 @@
+import { useState } from 'react'
 import './App.css'
-import Card from './components/card/Card'
 import Cards from './components/cards/Cards'
-import SearchBar from './components/SearchBar.jsx'
-import characters, { Rick } from './data.js'
+import  Nav from './components/nav/Nav'
 
 function App (name,species,gender,image,onClose) {
+    const [characters,setCharacters] = useState([]);
+    const example = {
+      name: 'Morty Smith',
+      species: 'Human',
+      gender: 'Male',
+      image: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg',
+   };
+    const onSearch = (id)=>{
+      setCharacters([...characters,example]);
+    }
   return (
     <div className='App' style={{ padding: '25px' }}>
-       <SearchBar
-          onSearch={(characterID) => window.alert(characterID)}
-        />
-        <hr />
-      <div style={{
-        display:"flex",
-        justifyContent:"center",
-        // alignItems:"center",
-      }}>
-        <Card
-        key ={Rick.id}
-          name={Rick.name}
-          species={Rick.species}
-          gender={Rick.gender}
-          image={Rick.image}
-          onClose={() => window.alert('Emulamos que se cierra la card')}
-        />
-      </div>
-      <hr />
-      <div>
-        <Cards
-          characters={characters}
-        />
-      </div>
-      
-      <div>
-       
-      </div>
+        {/* aqui va el nav */}
+        <Nav onSearch={onSearch}/> {/*quedamos en el 18:26  https://www.students.soyhenry.com/classes/16?cohortId=65&videoOrdinal=3*/}
+         <hr />
+        <Cards characters={characters}/>
     </div>
   )
 }
