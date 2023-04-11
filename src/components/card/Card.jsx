@@ -4,7 +4,8 @@ export default function Card({name,species,gender,image,onClose}) {
    return (
       <div className={styles.container}>
          <div className={styles.buttonContainder}>
-           <button className={styles.button} onClick ={onClose}>X</button>
+           <button className={styles.button} onClick ={onClose}> X
+           </button>
          </div>
          <div className={styles.imagenContainder}>
          <img  src={image} alt="Not found" />

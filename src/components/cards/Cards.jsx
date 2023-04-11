@@ -9,12 +9,14 @@ justify-content: space-evenly;
 
 
 export default function Cards(props) {
+   //character , onClose
 
    const { characters } = props;
+   console.log(props.onClose)
       
     return( 
     <Div>
-      {characters.map(({id,name,species,gender,image})=>(
+      {characters.map(({id,name,species,gender,image,})=>(
          
        <Card
        key ={id}
@@ -22,7 +24,7 @@ export default function Cards(props) {
        species={species}
        gender={gender}
        image={image}
-       onClose={() => alert('Emulamos que se cierra la card')}
+       onClose={() => props.onClose(id)}
      />
       ))}
 
