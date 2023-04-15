@@ -3,6 +3,9 @@ import './App.css'
 import Cards from './components/cards/Cards'
 import  Nav from './components/nav/Nav'
 import styled from 'styled-components';
+import { Routes,Route } from 'react-router-dom';
+import About from './components/about/About';
+import Detail from './components/detail/Detail';
 
 function App (name,species,gender,image) {
     const [characters,setCharacters] = useState([]);
@@ -31,12 +34,25 @@ function App (name,species,gender,image) {
     }
   return (
     <div className='App' style={{ padding: '25px' }}>
+
         {/* aqui va el nav */}
+
         <Nav onSearch={onSearch}/> 
-         <hr />
-        <Cards characters={characters} onClose={onClose}/>
+          <Routes>
+            <Route
+              path='/home'
+              element={<Cards characters={characters} 
+                        onClose={onClose}/>}
+            /> 
+            <Route path='/about' element={<About/>}/>      
+            <Route path='/detail/:detailId' element={<Detail/>}/>      
+        
+        
+        
+        </Routes>
     </div>
-  )
+  
+  ) 
 }
 
 export default App

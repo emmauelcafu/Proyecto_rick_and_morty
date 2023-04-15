@@ -56,3 +56,8 @@ img{
 .propsContainer h2 {
     margin: 0px;
 }
+
+.link{
+     text-decoration: none;
+     color: inherit;
+}
