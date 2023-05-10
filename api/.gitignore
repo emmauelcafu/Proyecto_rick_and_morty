@@ -1,0 +1,2 @@
+# es para ignorar cuando se suba en git es mejor cuando se guardad las contraseñas y no la quiereas subir  se coloca los nombres de los archivos.
+.env
